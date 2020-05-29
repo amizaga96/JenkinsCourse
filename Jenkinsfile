@@ -16,8 +16,7 @@ pipeline {
             else
 				echo "Passing.. "$LANGUISH" is not C" 
 			fi
-	    
-               '''
+            '''
              
          }
       }
@@ -38,12 +37,16 @@ pipeline {
       }
       stage('Execute bash script') {
          steps {
+			echo 'Execute bash script'
+			sh '''
 			if [ "$LANGUISH" = "Bash" or "$LANGUISH" = "All" ]; then
 				chmod 755 ${WORKSPACE}/Bash/login.sh
 				${WORKSPACE}/Bash/login.sh $FIRST_NAME $LAST_NAME
 				echo 'Bash script run successfully'
 			else
 				echo "Passing.. "$LANGUISH" is not Bash"
+			fi
+			'''
          }
       }
       
