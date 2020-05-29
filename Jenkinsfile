@@ -42,8 +42,8 @@ pipeline {
 				chmod 755 ${WORKSPACE}/Bash/login.sh
 				${WORKSPACE}/Bash/login.sh $FIRST_NAME $LAST_NAME
 				echo 'Bash script run successfully'
-            else
-            echo "Passing.. "$LANGUISH" is not Bash"
+			else
+				echo "Passing.. "$LANGUISH" is not Bash"
          }
       }
       
