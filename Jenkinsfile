@@ -25,8 +25,9 @@ pipeline {
             echo 'Execute python script'
             sh '''
 			if [ "$LANGUISH" = "Python" -o "$LANGUISH" = "All" ]; then
-				chmod 755 ${WORKSPACE}/Python/login.py
-				${WORKSPACE}/Python/login.py $FIRST_NAME $LAST_NAME
+				cd  ${WORKSPACE}/Python
+				chmod 755 login.py
+				python login.py $FIRST_NAME $LAST_NAME
 				echo 'Python script run successfully'
 			else
 				echo "Passing.. "$LANGUISH" is not Python"
@@ -40,8 +41,9 @@ pipeline {
 			echo 'Execute bash script'
 			sh '''
 			if [ "$LANGUISH" = "Bash" -o "$LANGUISH" = "All" ]; then
-				chmod 755 ${WORKSPACE}/Bash/login.sh
-				${WORKSPACE}/Bash/login.sh $FIRST_NAME $LAST_NAME
+				cd ${WORKSPACE}/Bash/
+				chmod 755 login.sh
+				bash login.sh $FIRST_NAME $LAST_NAME
 				echo 'Bash script run successfully'
 			else
 				echo "Passing.. "$LANGUISH" is not Bash"
