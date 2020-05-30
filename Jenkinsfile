@@ -43,7 +43,7 @@ pipeline {
 			if [ "$LANGUISH" = "Bash" -o "$LANGUISH" = "All" ]; then
 				cd ${WORKSPACE}/Bash/
 				chmod 755 bashscript.py
-				bash bashscript.py $NAME
+				bash bashscript.sh $NAME
 				echo 'Bash script run successfully'
 			else
 				echo "Passing.. "$LANGUISH" is not Bash"
